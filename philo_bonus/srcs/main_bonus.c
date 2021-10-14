@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 11:34:41 by gcollet           #+#    #+#             */
-/*   Updated: 2021/10/06 11:34:21 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/10/12 15:13:28 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ void	*all_have_eat(void *void_philo)
 	while (full < philo->data->num_eat * philo->data->philo_num)
 	{
 		sem_wait(philo->data->sem_eaten);
+		if (philo->data->status == dead)
+			return (NULL);
 		full++;
 	}
 	sem_post(philo->data->dead);
@@ -99,14 +101,14 @@ int	main(int argc, char **argv)
 		philo[i].pid = fork();
 		if (philo[i].pid == 0)
 			routine(&(philo[i]));
-		usleep(100);
 	}
 	sem_wait(philo->data->dead);
+	philo->data->status = dead;
+	sem_post(philo->data->sem_eaten);
 	i = -1;
 	while (++i < philo->data->philo_num)
 		kill(philo[i].pid, SIGKILL);
 	if (argv[5])
 		pthread_join(th, NULL);
 	free_all(philo);
-	return (0);
 }
