@@ -48,3 +48,11 @@ make && ./philo <number_of_philosophers> <time_to_die> <time_to_eat> <time_to_sl
 • All the forks are in the middle of the table.<br/>
 • They have no states in memory but the number of available forks is represented by a semaphore.<br/>
 • Each philosopher should be a process and the main process should not be a philosopher.<br/>
+
+```
+make && ./philo_bonus <number_of_philosophers> <time_to_die> <time_to_eat> <time_to_sleep>
+```
+OR
+```
+make && ./philo_bonus <number_of_philosophers> <time_to_die> <time_to_eat> <time_to_sleep> <number_of_times_each_philosopher_must_eat>
+```
