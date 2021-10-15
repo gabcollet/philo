@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   routine.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gcollet <gcollet@student.42quebec.com>     +#+  +:+       +#+        */
+/*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 16:32:20 by gcollet           #+#    #+#             */
-/*   Updated: 2021/10/05 17:32:58 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/10/15 15:26:50 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,23 @@ void	eating(t_philo *philo)
 		pthread_mutex_unlock(&philo->data->fork[philo->id]);
 }
 
-void	*routine(void *void_philo)
+void	*is_dead(void *void_philo)
 {
 	t_philo	*philo;
 
 	philo = void_philo;
+	while (1)
+		check_status(philo);
+}
+
+void	*routine(void *void_philo)
+{
+	t_philo		*philo;
+	pthread_t	th;
+
+	philo = void_philo;
+	pthread_create(&th, NULL, &is_dead, philo);
+	pthread_detach(th);
 	while (philo->data->status == alive)
 	{
 		check_status(philo);

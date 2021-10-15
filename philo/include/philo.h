@@ -6,7 +6,7 @@
 /*   By: gcollet <gcollet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/20 11:34:54 by gcollet           #+#    #+#             */
-/*   Updated: 2021/10/06 14:28:59 by gcollet          ###   ########.fr       */
+/*   Updated: 2021/10/15 15:27:08 by gcollet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ t_status		check_status(t_philo *philo);
 void			*routine(void *void_philo);
 void			taking_fork(t_philo *philo);
 void			eating(t_philo *philo);
+void			*is_dead(void *void_philo);
 
 /* init.c */
 t_data			*init_data(int argc, char **argv);
