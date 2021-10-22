@@ -2,7 +2,7 @@
 
 **Philo project school 42**
 
-<p align="center">
+<p align="left">
   <img width="820" height="180" src="https://i.ibb.co/j6WfC1m/Screen-Shot-2021-10-22-at-2-43-05-PM.png">
 </p>
 
