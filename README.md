@@ -2,6 +2,10 @@
 
 **Philo project school 42**
 
+<p align="center">
+  <img width="820" height="180" src="https://i.ibb.co/j6WfC1m/Screen-Shot-2021-10-22-at-2-43-05-PM.png">
+</p>
+
 One or more philosophers are sitting at a round table doing one of three things: eating, thinking, or sleeping. 
 While eating, they are not thinking or sleeping, while sleeping, they are not eating or thinking and of course, while thinking, they are not eating or sleeping.
 The philosophers sit at a circular table with a large bowl of spaghetti in the center. There are some forks on the table.<br/>
